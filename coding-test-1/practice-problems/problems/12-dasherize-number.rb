@@ -8,24 +8,23 @@
 # Difficulty: medium.
 
 def dasherize_number(num)
+  array = []
+  x = 0
+  num = num.to_s
+  while num.length > x
+    if x == num.length - 1
+      array.push(num[x])
+    end
+    if num[x] % 2 != 0 && num.length - 2 > x
+      array.push(num[x] + "-")
+    else
+      array.push(num[x])
+    end
+    x += 1
+  end
+  print array.join("")
 end
-
-# These are tests to check that your code is working. After writing
-# your solution, they should all print true.
-
-puts(
-  'dasherize_number(203) == "20-3": ' +
-  (dasherize_number(203) == '20-3').to_s
-)
-puts(
-  'dasherize_number(303) == "3-0-3": ' +
-  (dasherize_number(303) == '3-0-3').to_s
-)
-puts(
-  'dasherize_number(333) == "3-3-3": ' +
-  (dasherize_number(333) == '3-3-3').to_s
-)
-puts(
-  'dasherize_number(3223) == "3-22-3": ' +
-  (dasherize_number(3223) == '3-22-3').to_s
-)
+puts("dasherize_number(203) == \"20-3\": #{dasherize_number(203) == "20-3"}")
+puts("dasherize_number(303) == \"3-0-3\": #{dasherize_number(303) == "3-0-3"}")
+puts("dasherize_number(333) == \"3-3-3\": #{dasherize_number(333) == "3-3-3"}")
+puts("dasherize_number(3223) == \"3-22-3\": #{dasherize_number(3223) == "3-22-3"}")

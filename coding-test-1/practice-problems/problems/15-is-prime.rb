@@ -13,12 +13,26 @@
 # Difficulty: medium.
 
 def is_prime?(number)
+  if number < 2
+    return false
+  end
+  idx = 1
+  primer = 0
+  while number >= idx
+    if number % idx == 0
+      primer += 1
+    end
+    idx += 1
+  end
+  puts primer
+  if primer == 2
+    return true
+  else
+    return false
+  end
 end
 
-# These are tests to check that your code is working. After writing
-# your solution, they should all print true.
-
-puts('is_prime?(2) == true: ' + (is_prime?(2) == true).to_s)
-puts('is_prime?(3) == true: ' + (is_prime?(3) == true).to_s)
-puts('is_prime?(4) == false: ' + (is_prime?(4) == false).to_s)
-puts('is_prime?(9) == false: ' + (is_prime?(9) == false).to_s)
+puts("is_prime?(2) == true: #{is_prime?(2) == true}")
+puts("is_prime?(3) == true: #{is_prime?(3) == true}")
+puts("is_prime?(4) == false: #{is_prime?(4) == false}")
+puts("is_prime?(9) == false: #{is_prime?(9) == false}")

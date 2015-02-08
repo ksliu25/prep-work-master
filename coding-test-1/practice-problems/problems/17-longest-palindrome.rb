@@ -5,15 +5,6 @@
 #
 # Note that the entire string may itself be a palindrome.
 #
-# You may want to use Array's `slice(start_index, length)` method,
-# which returns a substring of length `length` starting at index
-# `start_index`:
-#
-#     "abcd".slice(1, 2) == "bc"
-#     "abcd".slice(1, 3) == "bcd"
-#     "abcd".slice(2, 1) == "c"
-#     "abcd".slice(2, 2) == "cd"
-#
 # Difficulty: hard.
 
 def palindrome?(string)
@@ -30,20 +21,25 @@ def palindrome?(string)
 end
 
 def longest_palindrome(string)
+  x = 0
+  longestpalindrome = nil
+  while string.length > x
+    y = x + 1
+    while string.length > y
+      if string[x] == string[y] && palindrome?(string[x..y])
+        palindrome = string[x..y]
+        if longestpalindrome == nil || palindrome.length > longestpalindrome.length 
+          longestpalindrome = palindrome
+        end
+      end
+      y += 1
+    end
+    x += 1
+  end
+  return longestpalindrome
 end
 
-# These are tests to check that your code is working. After writing
-# your solution, they should all print true.
+puts("longest_palindrome(\"abcbd\") == \"bcb\": #{longest_palindrome("abcbd") == "bcb"}")
+puts("longest_palindrome(\"abba\") == \"abba\": #{longest_palindrome("abba") == "abba"}")
+puts("longest_palindrome(\"abcbdeffe\") == \"effe\": #{longest_palindrome("abcbdeffe") == "effe"}")
 
-puts(
-  'longest_palindrome("abcbd") == "bcb": ' +
-  (longest_palindrome('abcbd') == 'bcb').to_s
-)
-puts(
-  'longest_palindrome("abba") == "abba": ' +
-  (longest_palindrome('abba') == 'abba').to_s
-)
-puts(
-  'longest_palindrome("abcbdeffe") == "effe": ' +
-  (longest_palindrome('abcbdeffe') == 'effe').to_s
-)

@@ -9,16 +9,20 @@
 # Difficulty: medium.
 
 def capitalize_words(string)
+  string = string.split
+  idx1 = 0
+  while string.length > idx1
+    string[idx1][0] = string[idx1][0].upcase
+    idx1 += 1
+  end
+  return string.join(" ")
 end
 
-# These are tests to check that your code is working. After writing
-# your solution, they should all print true.
-
 puts(
-  'capitalize_words("this is a sentence") == "This Is A Sentence": ' +
+  "capitalize_words(\"this is a sentence\") == \"This Is A Sentence\": " +
   (capitalize_words("this is a sentence") == "This Is A Sentence").to_s
 )
 puts(
-  'capitalize_words("mike bloomfield") == "Mike Bloomfield": ' +
+  "capitalize_words(\"mike bloomfield\") == \"Mike Bloomfield\": " +
   (capitalize_words("mike bloomfield") == "Mike Bloomfield").to_s
 )

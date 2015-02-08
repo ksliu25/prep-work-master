@@ -4,13 +4,16 @@
 # Difficulty: easy.
 
 def sum_nums(num)
+  x = 0
+  while num > 0
+    x += num
+    num -= 1
+  end
+  return x
 end
 
-# These are tests to check that your code is working. After writing
-# your solution, they should all print true.
-
-puts('sum_nums(1) == 1: ' + (sum_nums(1) == 1).to_s)
-puts('sum_nums(2) == 3: ' + (sum_nums(2) == 3).to_s)
-puts('sum_nums(3) == 6: ' + (sum_nums(3) == 6).to_s)
-puts('sum_nums(4) == 10: ' + (sum_nums(4) == 10).to_s)
-puts('sum_nums(5) == 15: ' + (sum_nums(5) == 15).to_s)
+puts("sum_nums(1) == 1: #{sum_nums(1) == 1}")
+puts("sum_nums(2) == 3: #{sum_nums(2) == 3}")
+puts("sum_nums(3) == 6: #{sum_nums(3) == 6}")
+puts("sum_nums(4) == 10: #{sum_nums(4) == 10}")
+puts("sum_nums(5) == 15: #{sum_nums(5) == 15}")

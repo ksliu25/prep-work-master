@@ -1,22 +1,33 @@
 # Write a method that will take a string as input, and return a new
 # string with the same letters in reverse order.
 #
-# Don't use String's reverse method; that would be too simple.
-#
 # Difficulty: easy.
 
-def reverse(string)
+def reverse0(string)
+  #cop out method below
+  #string.reverse
+  result = ""
+  reverse = string.length - 1
+  while reverse >= 0
+    result += string[reverse]
+    reverse -= 1
+  end
+  return result
 end
 
-# These are tests to check that your code is working. After writing
-# your solution, they should all print true.
+def reverse(string)
+  result = ""
+  idx = 0
+  while string.length > idx
+    result = string[idx] + result
+    idx = idx + 1
+  end
+  return result
+end
 
-puts(
-  'reverse("abc") == "cba": ' + (reverse("abc") == "cba").to_s
-)
-puts(
-  'reverse("a") == "a": ' + (reverse("a") == "a").to_s
-)
-puts(
-  'reverse("") == "": ' + (reverse("") == "").to_s
-)
+puts reverse("Hello")
+
+
+puts("reverse(\"abc\") == \"cba\": #{reverse("abc") == "cba"}")
+puts("reverse(\"a\") == \"a\": #{reverse("a") == "a"}")
+puts("reverse(\"\") == \"\": #{reverse("") == ""}")
