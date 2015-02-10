@@ -1,4 +1,4 @@
-def ordered_vowel_words(str)
+def vowels?(str)
 	vowel = nil
 	idx = 0
 	while str.length > idx
@@ -6,10 +6,17 @@ def ordered_vowel_words(str)
 			if vowel == nil || str[idx] > vowel || str[idx] == vowel
 				vowel = str[idx]
 				else
-					return ""
+					return true
 			end
 		end
 		idx += 1
 	end
-	str
+	false
 end
+
+def ordered_vowel_words(str)
+	arr = str.split(" ")
+	arr.delete_if{|x| vowels?(x)}
+	arr.join(" ")
+end
+
