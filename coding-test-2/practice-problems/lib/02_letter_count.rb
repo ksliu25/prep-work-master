@@ -2,8 +2,8 @@
 
 I had to look at the solution, but I am happy to learn 
 how to use each_char and unless for the first time!
-
 =end
+
 
 
 def letter_count(str)
